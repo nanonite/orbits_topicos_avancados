@@ -1,18 +1,21 @@
 # orbits
 
-Code to reproduce results from the paper "Rediscovering orbital mechanics with machine learning". 
+El código para reproducir los resultados del artículo "Rediscovering orbital mechanics with machine learning".
 
-- The folder "simulate" contains the base clases, as well as code to generate simulated orbits, and to read the nasa data 
-- The folder "data" contains the data downloaded from the NASA Ephymeris system, and preprocessed into the format specified in the paper
-- The file "ml_model.py" contains the graph neural network model 
-- The file "planets_tf2.py" runs the graph neural network. 
-- The file symbolic_regression.py" runs the symbolic regression algorithm. 
-- All the plotting scripts used in the paper are contained in the "plotting" folder.
+    -La carpeta "simulate" contiene las clases base, así como el código para generar órbitas simuladas y para leer los datos de NASA.
+    -La carpeta "planets_data" contiene los datos descargados del sistema Ephymeris de NASA, y procesados en el formato especificado en el artículo.
+    -El archivo "ml_model.py" contiene el modelo de red neuronal gráfica.
+    -El archivo "planets_tf2.py" ejecuta la red neuronal gráfica.
+    -El archivo "symbolic_regression.py" ejecuta el algoritmo de regresión simbólica.
+    -Todos los scripts de trazado utilizados en el artículo están contenidos en la carpeta "plotting".
 
-To run the code, the following packages are required: 
+Para ejecutar el código,
 
-- TensorFlow 2: https://www.google.com/search?client=safari&rls=en&q=tensorflow&ie=UTF-8&oe=UTF-8
-- graph_nets: https://github.com/deepmind/graph_nets
-- PySR: https://github.com/MilesCranmer/PySR
+    -crea un entorno conda y ejecuta pip install en el archivo "requirements_pip.txt".
+    -Crea el archivo "solar_system_data.pkl" ejecutando 'read_orbits.py', que espera todos los datos de Horizon bajo "planets_data/barycenter".
+    -Asegúrate de que el "solar_system_data.pkl" esté ubicado bajo "planet_data/".
+    -Ejecuta el cuaderno paso a paso en "planets_tf2.ipynb"
+        Nota: puedes saltarte el paso de parámetros hiperpárametros de Optuna y entrenamiento y cargar el archivo del modelo preentrenado "/saved_models/mejor_modelo_orbits.keras" definiendo el parámetro en el paso de carga del punto de control del modelo. (load_checkpoint)
+
 
 ![Orbits Demo](data/animation.gif)
